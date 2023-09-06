@@ -9,7 +9,7 @@ function seo_mini_settings_menu_page(){
 		'manage_options', // права пользователя, необходимые для доступа к странице
 		'seo_mini_settings', // ярлык страницы
 		'seo_mini_settings_page_callback', // функция, которая выводит содержимое страницы
-		'dashicons-admin-generic', // иконка, в данном случае из Dashicons
+		'dashicons-chart-bar', // иконка, в данном случае из Dashicons
 		3 // позиция в меню
 	);
 }
@@ -190,7 +190,7 @@ function sanitize_callback( $options ){
 	foreach( $options as $name => & $val ){
         if( $name == 'robots' )
 			$val = strip_tags( $val );
-            
+
         if( $name == 'type_author' )
 			$val = strip_tags( $val );
 
