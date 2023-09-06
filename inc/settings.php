@@ -53,6 +53,22 @@ function seo_mini_settings(){
     // add_settings_field('seo_mini_field_type_author', 'Тип автора', 'fill_seo_mini_field_type_author', 'seo_mini_settings', 'section_id' );
     // add_settings_field('seo_mini_field_author_name', 'Имя автора', 'fill_seo_mini_field_author_name', 'seo_mini_settings', 'section_id' );
     add_settings_field('seo_mini_field_logo', 'Логотип ссылка', 'fill_seo_mini_field_logo', 'seo_mini_settings', 'section_id' );
+    add_settings_field('seo_mini_field_robots', 'Содержание файла robots.txt', 'fill_seo_mini_field_robots', 'seo_mini_settings', 'section_id' );
+}
+
+function fill_seo_mini_field_robots(){
+	$val = get_option('seo_mini_option');
+    $val_option = '';
+    if ( $val ) {
+        if ( array_key_exists( 'robots', $val ) ) {
+            $val_option = $val['robots'] ? $val['robots'] : null;
+        }
+    }
+	?>
+    <div class="seo-mini-settings-field">
+        <textarea name="seo_mini_option[robots]" rows="12" cols="80" placeholder=""><?php echo esc_attr( $val_option ) ?></textarea>
+    </div>
+	<?php
 }
 
 function fill_seo_mini_field_author_name(){
@@ -172,6 +188,9 @@ function fill_exec_field_lang(){
 // Очистка данных
 function sanitize_callback( $options ){
 	foreach( $options as $name => & $val ){
+        if( $name == 'robots' )
+			$val = strip_tags( $val );
+            
         if( $name == 'type_author' )
 			$val = strip_tags( $val );
 

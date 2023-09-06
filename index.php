@@ -143,3 +143,12 @@ function seo_mini_wp_posts_nofollow( $content ){
 	// return $content;
     return stripslashes( wp_rel_nofollow( $content ) );
 }
+
+add_action( 'do_robotstxt', 'seo_mini_robots_txt' );
+function seo_mini_robots_txt(){
+    $robots = seo_mini_get_options('robots');
+    if ( $robots ) {
+        echo $robots;
+    	die;
+    }
+}
