@@ -1,0 +1,19 @@
+.seo-mini-settings-field input {
+    width: 60%;
+}
+
+.seo-mini-settings-field input.seo-mini-delimiter {
+    width: 10%;
+}
+
+.seo-mini-settings-field input.seo-mini-number {
+    width: 10%;
+}
+
+input.seo-mini-input {
+    width: 98%;
+}
+
+textarea.seo-mini-textarea {
+    width: 98%;
+}
